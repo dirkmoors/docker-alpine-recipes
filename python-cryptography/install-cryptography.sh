@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 CRYPTOGRAPHY_VERSION=${CRYPTOGRAPHY_VERSION:-2.1.4}
 OPENSSL_VERSION=${OPENSSL_VERSION:-1.1.0g}
@@ -32,6 +32,6 @@ make && make install
 
 cd ..
 CFLAGS="-I${CWD}/openssl/include" LDFLAGS="-L${CWD}/openssl/lib" pip wheel --no-binary :all cryptography==${CRYPTOGRAPHY_VERSION}
-pip install *.whl
+pip install wheel>=0.31.1 *.whl
 
 rm -rf ${TMP_DIR}
