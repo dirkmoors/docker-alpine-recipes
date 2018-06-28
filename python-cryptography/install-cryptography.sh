@@ -31,7 +31,8 @@ cd openssl-${OPENSSL_VERSION}
 make && make install
 
 cd ..
+pip install -U wheel>=0.31.1
 CFLAGS="-I${CWD}/openssl/include" LDFLAGS="-L${CWD}/openssl/lib" pip wheel --no-binary :all cryptography==${CRYPTOGRAPHY_VERSION}
-pip install wheel>=0.31.1 *.whl
+pip install *.whl
 
 rm -rf ${TMP_DIR}
