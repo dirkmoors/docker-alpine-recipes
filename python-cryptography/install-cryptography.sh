@@ -16,8 +16,8 @@ echo "Verifying openssl-${OPENSSL_VERSION}.tar.gz using GPG..."
 wget -O openssl.tar.gz.asc -q https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz.asc
 GNUPGHOME="$(mktemp -d)"
 
-( gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "${OPENSSL_GPG_KEY}" \
-  || gpg --keyserver pgp.mit.edu --recv-keys "${OPENSSL_GPG_KEY}" \
+( gpg --keyserver zimmermann.mayfirst.org --recv-keys "${OPENSSL_GPG_KEY}" \
+  || gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "${OPENSSL_GPG_KEY}" \
   || gpg --keyserver keyserver.pgp.com --recv-keys "${OPENSSL_GPG_KEY}" )
 
 gpg --batch --verify openssl.tar.gz.asc openssl.tar.gz
