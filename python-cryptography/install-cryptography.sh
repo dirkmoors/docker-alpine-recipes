@@ -32,6 +32,7 @@ make && make install
 
 cd ..
 pip install -U wheel>=0.31.1
+pip install -U cffi>=1.12.2
 CFLAGS="-I${CWD}/openssl/include" LDFLAGS="-L${CWD}/openssl/lib" pip wheel --no-binary :all cryptography==${CRYPTOGRAPHY_VERSION}
 pip install *.whl
 
